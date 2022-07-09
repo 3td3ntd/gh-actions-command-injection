@@ -1,0 +1,16 @@
+
+name: Check PR  title
+on: [pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: |
+          echo "this is from main"
+          export title="${{ github.event.pull_request.title }}"
+          echo $title > app.py && python3 app.py
+
+     
+          
+         
